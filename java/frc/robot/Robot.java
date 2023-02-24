@@ -17,7 +17,7 @@ public class Robot extends TimedRobot {
    DifferentialDrive drive = new DifferentialDrive(lmotora, rmotora);
 
 
-
+@Override
 public void teleopInit() {
    lmotorb.follow(lmotora);
    lmotorb.follow(rmotora);
@@ -31,4 +31,11 @@ public void teleopInit() {
    rmotorb.setSafetyEnabled(false);
 
     drive.tankDrive(-m_driverController.getLeftY(), m_driverController.getRightX());
+}
+   @Override
+public void disabledInit() {
+   lmotora.set(0);
+   lmotorb.set(0);
+   rmotora.set(0);
+   rmotorb.set(0);
 }}
